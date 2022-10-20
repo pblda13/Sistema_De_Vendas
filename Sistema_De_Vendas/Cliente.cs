@@ -6,11 +6,11 @@ namespace Sistema_De_Vendas
 {
     class Cliente
     {
-        public string Nome { get; set; }
+        public string Nome;
 
-         public Cliente()
+        public Cliente()
         {
-        } 
+        }
 
         public Cliente(string nome)
         {

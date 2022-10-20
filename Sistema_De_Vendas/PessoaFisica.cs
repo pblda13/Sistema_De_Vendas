@@ -7,11 +7,13 @@ namespace Sistema_De_Vendas
     class PessoaFisica : Cliente
     {
         public string CPF { get; set; }
+        
+
         public PessoaFisica()
         {
 
         }
-        public PessoaFisica(string nome, string cpf) 
+        public PessoaFisica(string nome, string cpf) : base (nome)
         {
             Nome = nome;
             CPF = cpf;

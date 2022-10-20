@@ -7,7 +7,7 @@ namespace Sistema_De_Vendas
     class Cabecalho
     {
         public Guid NumeroNota = Guid.NewGuid();
-        public Cliente cliente { get; set; }
+        public Cliente cliente {get;set;}= new Cliente();
 
         public Cabecalho()
         {

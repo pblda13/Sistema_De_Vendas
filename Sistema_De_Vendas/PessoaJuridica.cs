@@ -8,11 +8,12 @@ namespace Sistema_De_Vendas
     {
         public String CNPJ { get; set; }
 
+
         public PessoaJuridica()
         {
         }
 
-        public PessoaJuridica(string cnpj,string nome)
+        public PessoaJuridica(string cnpj, string nome)
         {
             Nome = nome;
             CNPJ = cnpj;

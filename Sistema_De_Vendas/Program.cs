@@ -8,32 +8,36 @@ namespace Sistema_De_Vendas
         enum Menu { PessoaFis = 1, PessoaJur = 2 }
         static void Main(string[] args)
         {
-
-            System.Console.WriteLine("1- PESSOA FISICA  OU 2- JURUDICA ?");
+            Console.WriteLine("Escolha a opção desejada: ");
+            Console.WriteLine("");
+            Console.WriteLine("1-PESSOA FISICA\n2-PESSOA JURIDICA ");
             Menu opcoes = (Menu)int.Parse(Console.ReadLine());
-            //var cliente = new List<Cliente>();
-            Cliente pf1 = new PessoaFisica();
-            //var pessoaf = new List<PessoaFisica>();
-             //PessoaFisica pf1 = new PessoaFisica();
+            var cliente = new List<Cliente>();
+            
 
             if (opcoes == Menu.PessoaFis)
             {
 
-                //PessoaFisica pf1 = new PessoaFisica();
+                
                 Console.WriteLine("Digite seu nome: ");
-                pf1.Nome = Console.ReadLine();
+                var nome = Console.ReadLine();
                 Console.WriteLine("Digite seu CPF: ");
-                ((PessoaFisica)pf1).CPF = Console.ReadLine();
-                //pessoaf.Add(pf1);
+                var cpf = Console.ReadLine();
+                var  pf1 = new PessoaFisica(nome,cpf);
+                cliente.Add(pf1);
+
+               
 
             }
             else
             {
-                var pj1 = new PessoaJuridica();
                 Console.WriteLine("Digite seu nome: ");
-                pj1.Nome = Console.ReadLine();
-                Console.WriteLine("Digite seu CNPJ: ");
-                pj1.CNPJ = Console.ReadLine();
+                var nome = Console.ReadLine();
+                Console.WriteLine("Digite seu CPF: ");
+                var cnpj = Console.ReadLine();
+                var pj1 = new PessoaJuridica(nome, cnpj);
+                cliente.Add(pj1);
+               
             }
 
 
@@ -64,31 +68,9 @@ namespace Sistema_De_Vendas
 
 
             NotaFiscal notaFiscal = new NotaFiscal();
-            Cabecalho cabecalho = new Cabecalho();
+            notaFiscal.Imprimir(produtos,cliente);
 
-
-            notaFiscal.Imprimir();
-
-            Console.WriteLine("=================== NOTA FISCAL DE SAIDA =========================");
-            Console.WriteLine();
-            Console.WriteLine($"Numero: {cabecalho.NumeroNota} ");
-            Console.WriteLine($"Cliente: {pf1.Nome}");
-            Console.WriteLine($"CPF:{ ((PessoaFisica)pf1).CPF}  ");
-            
-
-            Console.WriteLine();
-
-            decimal soma = 0;
-            Console.WriteLine($"Produto:       Quantidade:         Preço: ");
-            foreach (var item in produtos)
-            {
-                Console.WriteLine($"{item.Nome}            {item.Quantidade}              {item.Preco}");
-                soma = soma + item.Preco * item.Quantidade;
-            }
-            Console.WriteLine();
-            Console.WriteLine($"Total da Nota Fiscal: {soma} ");
-            Console.WriteLine();
-            Console.WriteLine("=========================================================================");
+           
         }
     }
 }
